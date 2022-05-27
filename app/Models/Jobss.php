@@ -1,0 +1,59 @@
+<?php
+
+namespace App\Models;
+use App\Models\Traits\ModelAttributes;
+
+use App\Models\Traits\Attributes\Mainsection;
+
+use Illuminate\Database\Eloquent\Model;
+
+use Spatie\Translatable\HasTranslations;
+
+
+class Jobss extends BaseModel
+{ 
+    use ModelAttributes, Mainsection;
+    use HasTranslations;
+    //
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+
+    protected $table='job';
+
+    protected $fillable = [
+        'id',
+        'name',
+        'email',
+        'phoneNumber',
+        'address',
+        'age',
+        'EQ',
+        'GY',
+        'YOE',
+        'field',
+        'cv',
+        'updated_at',
+        'created_at',
+    ];
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'Images'=> 'array',
+    ];
+}
